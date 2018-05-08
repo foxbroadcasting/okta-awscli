@@ -63,7 +63,8 @@ class AwsAuth(object):
 
         response = sts.assume_role_with_saml(RoleArn=role_arn,
                                              PrincipalArn=principal_arn,
-                                             SAMLAssertion=assertion)
+                                             SAMLAssertion=assertion,
+                                             DurationSeconds=43200)
         credentials = response['Credentials']
         return credentials
 
